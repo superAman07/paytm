@@ -1,0 +1,23 @@
+name: Build Succeeds on PR
+
+on:          # when this pull req should run on any codebase but on the master branch
+  pull_request:
+    branches:
+      - master  # iff someone pull the req to master branch only then it will run on the codebase
+      # - main , dev... etc you can add multiple
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Build
+        run: npm run build

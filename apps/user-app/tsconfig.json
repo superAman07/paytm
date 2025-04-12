@@ -1,6 +1,7 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
+    "types": ["next-auth", "./types/next-auth"],
     "plugins": [
       {
         "name": "next"
